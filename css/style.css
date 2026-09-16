@@ -123,9 +123,9 @@ p{margin:0 0 1em;color:var(--ink-soft);}
   color:#fff;font-weight:800;font-family:var(--font-display);
 }
 .brand-logo-img{height:44px;width:auto;display:block;}
-.brand-footer .brand-logo-footer{
-  height:40px;background:#fff;padding:8px 14px;border-radius:12px;
-}
+.brand-logo-footer{height:40px;}
+.btn-nav-cta{background:var(--coral-500);color:#fff;box-shadow:0 10px 22px -8px rgba(251,44,54,.45);}
+.btn-nav-cta:hover{background:var(--coral-600);}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0;}
 .nav-links a{font-size:.95rem;font-weight:600;color:var(--ink);position:relative;padding:6px 0;}
 .nav-links a:hover,.nav-links a.active{color:var(--coral-600);}
@@ -159,6 +159,28 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 }
 .hero-media{position:relative;}
 .hero-media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);width:100%;aspect-ratio:4/5;object-fit:cover;}
+
+/* Hero em faixa cheia (banner com foto + overlay), como no Vocação de Mãe */
+.hero-full{
+  position:relative;overflow:hidden;min-height:480px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:0;
+}
+.hero-full-bg{position:absolute;inset:0;}
+.hero-full-bg img{width:100%;height:100%;object-fit:cover;}
+.hero-full-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(36,25,32,.15) 0%,rgba(36,25,32,.35) 55%,var(--cream) 100%);
+}
+.hero-full-content{position:relative;z-index:1;max-width:760px;padding:64px 24px 56px;}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:8px;background:var(--lavender-100);
+  color:var(--rose-600);font-size:.82rem;font-weight:700;padding:9px 18px;border-radius:100px;
+  margin-bottom:22px;box-shadow:0 6px 16px -6px rgba(36,25,32,.2);
+}
+.hero-full-content h1{color:#fff;text-shadow:0 4px 24px rgba(36,25,32,.5);font-size:clamp(2rem,4.5vw,3.1rem);}
+.hero-full-content p.lead{color:#f6e9ea;margin:0 auto 30px;text-shadow:0 2px 12px rgba(36,25,32,.4);}
+.hero-full-content .hero-actions{justify-content:center;}
 .hero-floater{
   position:absolute;bottom:-24px;left:-24px;
   background:var(--white);border-radius:var(--radius-md);padding:18px 22px;
@@ -258,19 +280,24 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 }
 @media (max-width:800px){.viral-box{grid-template-columns:1fr;}}
 
-/* Footer */
-.site-footer{background:var(--teal-900);color:#d9c3c8;padding:72px 0 28px;}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
-.footer-grid h4{color:#fff;font-size:1rem;font-family:var(--font-body);font-weight:700;margin-bottom:16px;}
-.footer-grid a{display:block;margin-bottom:10px;font-size:.9rem;color:#d9c3c8;}
-.footer-grid a:hover{color:var(--coral-500);}
+/* Footer — claro, no mesmo tom do restante do site (como no Vocação de Mãe) */
+.site-footer{background:var(--peach-50);color:var(--ink-soft);padding:64px 0 28px;border-top:1px solid var(--line);}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-grid h4{
+  color:var(--ink);font-size:.78rem;font-family:var(--font-body);font-weight:800;
+  margin-bottom:16px;text-transform:uppercase;letter-spacing:.1em;
+}
+.footer-grid a{display:block;margin-bottom:10px;font-size:.92rem;color:var(--ink-soft);}
+.footer-grid a:hover{color:var(--coral-600);}
 .social-row{display:flex;gap:10px;margin-top:16px;}
 .social-row a{
-  width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);
+  width:38px;height:38px;border-radius:50%;background:var(--peach-100);color:var(--rose-600);
   display:flex;align-items:center;justify-content:center;
 }
-.social-row a:hover{background:var(--coral-500);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.social-row a:hover{background:var(--coral-500);color:#fff;}
+.trust-row{display:flex;gap:22px;flex-wrap:wrap;padding:20px 0;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-soft);}
+.trust-row span{display:flex;align-items:center;gap:6px;}
+.footer-bottom{border-top:1px solid var(--line);padding-top:20px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--ink-soft);}
 @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 
@@ -330,5 +357,5 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 .text-center{text-align:center;}
 .mx-auto{margin-left:auto;margin-right:auto;}
 .mt-lg{margin-top:56px;}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-.reveal.in{opacity:1;transform:translateY(0);}
+/* Conteúdo sempre visível por padrão — nunca depende de JS/scroll para aparecer */
+.reveal{opacity:1;transform:none;}

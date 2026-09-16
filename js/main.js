@@ -6,13 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => links.classList.toggle('open'));
   }
 
-  // Reveal on scroll
-  const items = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.15 });
-  items.forEach(i => obs.observe(i));
-
   // Filtro de categorias do blog
   const pills = document.querySelectorAll('.category-pill');
   const posts = document.querySelectorAll('[data-category]');
