@@ -1,36 +1,36 @@
 /* ==========================================================================
    Dra. Thatiane Mahet — Design System
-   Paleta inspirada no padrão Vocação de Mãe: coral vibrante + âmbar +
-   rosa-velho, sobre pastéis pêssego/rosa/lavanda e base creme.
+   Paleta extraída da logo oficial: turquesa + lavanda + dourado,
+   as três cores dos bonequinhos do símbolo, sobre base creme neutra.
    ========================================================================== */
 
 :root{
-  --peach-50:#fffcf5;
-  --peach-100:#fce9d9;
-  --peach-300:#f6c9a1;
-  --pink-100:#fbeff1;
-  --lavender-100:#e9e2f3;
-  --coral-500:#fb2c36;
-  --coral-600:#d6262f;
-  --rose-500:#9a5f66;
-  --rose-600:#7c4b50;
-  --teal-900:#241920;
-  --teal-800:#32251b;
-  --teal-700:#4a3630;
-  --teal-500:#9a5f66;
-  --gold-500:#f59e0b;
-  --gold-600:#d6820a;
-  --cream:#fffcf5;
-  --ink:#2b1e22;
-  --ink-soft:#6b5a5e;
-  --line:#f0ddd0;
+  --peach-50:#fbfbf8;
+  --peach-100:#fdf3d9;
+  --peach-300:#f5cf50;
+  --pink-100:#ece9f7;
+  --lavender-100:#e3f6f7;
+  --coral-500:#2eabb8;
+  --coral-600:#227e88;
+  --rose-500:#6b64b0;
+  --rose-600:#544e8f;
+  --teal-900:#163b3f;
+  --teal-800:#1e4d51;
+  --teal-700:#2a6067;
+  --teal-500:#53c4ce;
+  --gold-500:#f0cc48;
+  --gold-600:#caa62c;
+  --cream:#fbfbf8;
+  --ink:#2e3238;
+  --ink-soft:#666e78;
+  --line:#e7e4ee;
   --white:#ffffff;
 
   --radius-lg:32px;
   --radius-md:20px;
   --radius-sm:12px;
-  --shadow-soft:0 20px 45px -20px rgba(36,25,32,.25);
-  --shadow-card:0 10px 30px -12px rgba(36,25,32,.16);
+  --shadow-soft:0 20px 45px -20px rgba(22,59,63,.25);
+  --shadow-card:0 10px 30px -12px rgba(22,59,63,.14);
 
   --font-display:"Fraunces","Georgia",serif;
   --font-body:"Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -64,8 +64,12 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 }
 .section{padding:96px 0;}
 .section--tight{padding:64px 0;}
+@media (max-width:720px){
+  .section{padding:56px 0;}
+  .section--tight{padding:40px 0;}
+}
 .section--teal{background:var(--teal-900);color:var(--peach-50);}
-.section--teal p{color:#d9c3c8;}
+.section--teal p{color:#bfe3e6;}
 .section--peach{background:var(--peach-100);}
 .eyebrow{
   display:inline-flex;
@@ -96,7 +100,7 @@ p{margin:0 0 1em;color:var(--ink-soft);}
   white-space:nowrap;
 }
 .btn:hover{transform:translateY(-2px);}
-.btn-primary{background:var(--coral-500);color:var(--white);box-shadow:0 14px 30px -10px rgba(251,44,54,.45);}
+.btn-primary{background:var(--coral-500);color:var(--white);box-shadow:0 14px 30px -10px rgba(46,171,184,.45);}
 .btn-primary:hover{background:var(--coral-600);}
 .btn-outline{background:transparent;color:var(--teal-900);border:1.5px solid var(--teal-900);}
 .btn-outline:hover{background:var(--teal-900);color:var(--white);}
@@ -105,11 +109,17 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 .btn-block{width:100%;justify-content:center;}
 
 /* Header */
+/* backdrop-filter/transform num ancestral cria containing block para descendentes
+   position:fixed (o menu mobile abaixo) — por isso o blur vai num ::before,
+   nunca direto no .site-header. */
 .site-header{
   position:sticky;top:0;z-index:1000;
-  background:rgba(255,250,245,.9);
-  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
+}
+.site-header::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:rgba(251,251,248,.92);
+  backdrop-filter:blur(10px);
 }
 .nav{
   display:flex;align-items:center;justify-content:space-between;
@@ -124,7 +134,7 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 }
 .brand-logo-img{height:44px;width:auto;display:block;}
 .brand-logo-footer{height:40px;}
-.btn-nav-cta{background:var(--coral-500);color:#fff;box-shadow:0 10px 22px -8px rgba(251,44,54,.45);}
+.btn-nav-cta{background:var(--coral-500);color:#fff;box-shadow:0 10px 22px -8px rgba(46,171,184,.45);}
 .btn-nav-cta:hover{background:var(--coral-600);}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0;}
 .nav-links a{font-size:.95rem;font-weight:600;color:var(--ink);position:relative;padding:6px 0;}
@@ -141,7 +151,9 @@ p{margin:0 0 1em;color:var(--ink-soft);}
   }
   .nav-links.open{transform:translateY(0);}
   .nav-toggle{display:block;}
-  .nav-cta .btn-outline{display:none;}
+}
+@media (max-width:560px){
+  .nav-cta .btn-nav-cta{display:none;}
 }
 
 /* Hero */
@@ -170,16 +182,16 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 .hero-full-bg img{width:100%;height:100%;object-fit:cover;}
 .hero-full-bg::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(36,25,32,.15) 0%,rgba(36,25,32,.35) 55%,var(--cream) 100%);
+  background:linear-gradient(180deg,rgba(22,59,63,.15) 0%,rgba(22,59,63,.35) 55%,var(--cream) 100%);
 }
 .hero-full-content{position:relative;z-index:1;max-width:760px;padding:64px 24px 56px;}
 .hero-chip{
   display:inline-flex;align-items:center;gap:8px;background:var(--lavender-100);
   color:var(--rose-600);font-size:.82rem;font-weight:700;padding:9px 18px;border-radius:100px;
-  margin-bottom:22px;box-shadow:0 6px 16px -6px rgba(36,25,32,.2);
+  margin-bottom:22px;box-shadow:0 6px 16px -6px rgba(22,59,63,.2);
 }
-.hero-full-content h1{color:#fff;text-shadow:0 4px 24px rgba(36,25,32,.5);font-size:clamp(2rem,4.5vw,3.1rem);}
-.hero-full-content p.lead{color:#f6e9ea;margin:0 auto 30px;text-shadow:0 2px 12px rgba(36,25,32,.4);}
+.hero-full-content h1{color:#fff;text-shadow:0 4px 24px rgba(22,59,63,.5);font-size:clamp(2rem,4.5vw,3.1rem);}
+.hero-full-content p.lead{color:#eaf8f9;margin:0 auto 30px;text-shadow:0 2px 12px rgba(22,59,63,.4);}
 .hero-full-content .hero-actions{justify-content:center;}
 .hero-floater{
   position:absolute;bottom:-24px;left:-24px;
@@ -223,7 +235,7 @@ p{margin:0 0 1em;color:var(--ink-soft);}
   display:flex;flex-direction:column;height:100%;
   transition:transform .2s ease,box-shadow .2s ease;
 }
-.post-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -18px rgba(36,25,32,.25);}
+.post-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -18px rgba(22,59,63,.25);}
 .post-card img{height:190px;object-fit:cover;width:100%;}
 .post-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1;}
 .tag{
@@ -255,7 +267,7 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 /* Stats */
 .stats{display:flex;gap:48px;flex-wrap:wrap;}
 .stat .num{font-family:var(--font-display);font-size:2.4rem;color:var(--gold-500);font-weight:700;}
-.stat .label{font-size:.85rem;color:#d9c3c8;font-weight:600;}
+.stat .label{font-size:.85rem;color:#bfe3e6;font-weight:600;}
 
 /* Course card */
 .course-card{
@@ -278,7 +290,14 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 .newsletter-form input{
   flex:1;min-width:200px;padding:14px 18px;border-radius:100px;border:none;font-size:.95rem;
 }
-@media (max-width:800px){.viral-box{grid-template-columns:1fr;}}
+@media (max-width:800px){.viral-box{grid-template-columns:1fr;padding:32px;text-align:center;}
+  .viral-box .newsletter-form{justify-content:center;}
+}
+@media (max-width:480px){
+  .viral-box{padding:26px;}
+  .newsletter-form{flex-direction:column;}
+  .newsletter-form input,.newsletter-form button{width:100%;}
+}
 
 /* Footer — claro, no mesmo tom do restante do site (como no Vocação de Mãe) */
 .site-footer{background:var(--peach-50);color:var(--ink-soft);padding:64px 0 28px;border-top:1px solid var(--line);}

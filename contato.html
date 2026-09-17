@@ -52,10 +52,10 @@
     <div class="card">
       <h3>Envie uma mensagem</h3>
       <form onsubmit="event.preventDefault(); this.innerHTML='<p style=&quot;font-weight:700;&quot;>Obrigada! Retornaremos em breve. 💌</p>';" style="display:flex;flex-direction:column;gap:14px;margin-top:16px;">
-        <input required placeholder="Seu nome" style="padding:14px 18px;border-radius:100px;border:1px solid var(--line);">
-        <input required type="email" placeholder="Seu e-mail" style="padding:14px 18px;border-radius:100px;border:1px solid var(--line);">
-        <input required placeholder="WhatsApp com DDD" style="padding:14px 18px;border-radius:100px;border:1px solid var(--line);">
-        <textarea placeholder="Como podemos ajudar?" rows="4" style="padding:14px 18px;border-radius:18px;border:1px solid var(--line);font-family:inherit;"></textarea>
+        <input required placeholder="Seu nome" style="width:100%;padding:14px 18px;border-radius:100px;border:1px solid var(--line);font:inherit;">
+        <input required type="email" placeholder="Seu e-mail" style="width:100%;padding:14px 18px;border-radius:100px;border:1px solid var(--line);font:inherit;">
+        <input required placeholder="WhatsApp com DDD" style="width:100%;padding:14px 18px;border-radius:100px;border:1px solid var(--line);font:inherit;">
+        <textarea placeholder="Como podemos ajudar?" rows="4" style="width:100%;padding:14px 18px;border-radius:18px;border:1px solid var(--line);font-family:inherit;resize:vertical;"></textarea>
         <button type="submit" class="btn btn-primary btn-block">Enviar mensagem</button>
       </form>
     </div>
